@@ -1,8 +1,8 @@
 const express = require("express");
 require("dotenv").config();
+const cors = require("cors");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const app = express();
-const cors = require("cors");
 const port = process.env.PORT || 8000;
 
 // Middleware;
@@ -24,7 +24,7 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
+    // await client.connect();
     // Send a ping to confirm a successful connection
 
     const gategoryCollection = await client.db("carHub").collection("category")
